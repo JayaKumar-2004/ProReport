@@ -248,39 +248,55 @@
         <p>Firstly, the survey explores the historical significance of mobile tracking, tracing its origins to standard GPS modules. Next, the survey delves into various representations of offline databases, including SQLite implementations. By analyzing different encoding schemes, the project can ensure compatibility and flexibility.</p>
         
         <h2>2.2 Existing System</h2>
-        <p>Advanced users frequently employing security tools rely on dedicated software applications. Existing applications offer a wider range of functionalities but heavily rely on active internet connections to function, which is their primary point of failure.</p>
-        
+        <p>Advanced users frequently employing security tools rely on dedicated software applications like "Find My Device." While these applications offer basic functionalities (ringing, wiping, locating), they heavily rely on active internet connections to function, which is their primary point of failure. They also fail to provide deep hardware overrides, such as secretly activating the microphone or taking photos without turning on the screen.</p>
+    
         <h2>2.3 Proposed System</h2>
-        <p>The proposed system aims to develop a robust and user-friendly offline tracking converter using Android Native APIs. Raksha-Suraksha remains relevant in various environments, offering a seamless defense process, error handling, and a graphical user interface (GUI) for enhanced usability.</p>
-
+        <p>The proposed Raksha-Suraksha system replaces outdated, single-layer security concepts with a robust, hybrid-cloud architecture. By using asynchronous Firebase listeners and secure REST APIs, the web terminal can instantly push command states to the mobile node. If the internet connection drops, the proposed system automatically falls back to an encrypted SMS gateway. The companion mobile node continuously listens for these state changes via background "Ghost Services" and executes hardware overrides locally, creating a foolproof, closed-loop security environment.</p>
+            
         <h2>2.4 Tools Used</h2>
-        <p><strong>Hardware Requirement:</strong> Minimum 2GB RAM, GPS Hardware, Gravity Sensor.</p>
-        <p><strong>Software Requirement:</strong> Backend (Java/Python), Frontend (XML/HTML/CSS), Database (SQLite/Firebase), OS (Android/Linux).</p>
+        <p><strong>Hardware Requirement:</strong> Minimum 2GB RAM Mobile Node, GPS Sensor Hardware, Gravity/Accelerometer Sensors for motion detection, Standard PC/Laptop for the Web Terminal.</p>
+        <p><strong>Software Requirement:</strong>Backend: Python / Java (Android Native), Google Firebase (Realtime DB & Authentication).
+​Frontend: HTML5, CSS3 (Glassmorphism UI), Vanilla JavaScript.
+​Database: Firebase Realtime Database (Cloud), SQLite (Local Mobile Storage). </p>
     </div>
 
     <div class="page numbered-page">
         <h1>CHAPTER 3: SYSTEM ANALYSIS AND DESIGNING</h1>
         <h2>3.1 System Requirement Specification</h2>
-        <p>Software requirements are the detailed version of the user requirements. These specifications describe the external behavior of the software. The final output is the software requirements specification document, which communicates the requirements to customers and defines them for developers.</p>
+        <p>The System Requirement Specification (SRS) dictates both functional and non-functional requirements.
+​Functional Requirements: The system must allow users to log in securely, view live GPS coordinates on a map, trigger remote alarms, and generate encrypted SMS payloads to send to offline devices.
+​Non-Functional Requirements: The system requires a highly responsive User Interface (UI) that scales perfectly on mobile devices. It demands a command-execution latency of <50ms on active internet, 99.9% uptime SLA through Firebase, and 256-bit TLS encryption for all data traversing between the web terminal and the mobile device.</p>
         
         <h2>3.2 System Architecture</h2>
-        <p>During the process of application execution, we can say that when a physical trigger is given as input, the background service translates it into an actionable command (like sounding an alarm or capturing an image). Because we choose Java/Python, it is efficient in both speed and accessing the local database.</p>
-
-        <h2>3.3 System Design Data Flow Diagram</h2>
-        <p>A data flow diagram (DFD) is a way of representing a flow of data of a process or a system. The DFD provides information about the outputs and inputs of each entity. For each data flow, at least one of the endpoints must exist in a process.</p>
-    </div>
+        <p>The Raksha-Suraksha architecture operates on a Three-Tier Client-Server model.
+​The Client Tier (Web Terminal): A responsive UI where the "Agent" inputs commands.
+​The Intermediary Tier (Firebase/SMS Gateway): Acts as the secure bridge. Commands are pushed as state changes to the Firebase tree or formatted into encrypted SMS strings.
+​The Hardware Tier (Mobile Node): The Android application running a continuous background "Ghost Service." It listens for changes in the Firebase tree or incoming SMS triggers, decodes the command, and interacts directly with the device's native APIs (Camera, GPS, AudioManager).</p>
+            
+            <h2>3.3 System Design Data Flow Diagram</h2>
+        <p>In the Raksha-Suraksha Data Flow process:
+​Level 0: The User authenticates into the Web Terminal.
+​Level 1: The User inputs a command (e.g., "Trigger Alarm"). The Web Terminal processes this and updates the database node.
+​Level 2: The Firebase cloud triggers an onDataChange event on the target mobile device.
+​Level 3: The mobile device's background service intercepts the event, executes the hardware override (sounds the alarm at max volume), and writes a success confirmation back to the database, which immediately updates the User's Web Terminal.</p>
+            </div>
 
     <div class="page numbered-page">
         <h1>CHAPTER 4: IMPLEMENTATION</h1>
         <h2>4.1 Implementation Strategy</h2>
-        <p>Android provides data structures and shared preferences which store information in the form of key-value pairs, which is very convenient for implementing secure vaults. We can save the user's emergency contacts in a local SQLite dictionary.</p>
+          <p>The implementation strategy followed an Agile development lifecycle, allowing for iterative testing of discrete modules. The strategy prioritized the "Core Engine" first—establishing the stable connection between the Web Frontend and Firebase. Once authentication and database reading/writing were verified, the physical Android implementations (Camera API, GPS Location Manager, SMS Broadcast Receiver) were developed and tied to the database listeners. Finally, the UI/UX was polished using modern CSS frameworks to provide an enterprise-grade aesthetic.</p>
         
         <h2>4.2 Methodology</h2>
-        <p>In the case of an emergency, we extract the exact GPS coordinates and match them with the user's trusted contacts stored in the data structure. We store the payload in a variable which will contain our SMS string. We repeat this process until we traverse the entire emergency list.</p>
-        
+        <p>The methodology relies heavily on an Event-Driven Architecture. Instead of the mobile device constantly draining the battery by "asking" the server if a command is ready, the system uses Firebase's WebSocket connections. The mobile device stays asleep until the server "pushes" a command event to it. For offline scenarios, the methodology uses a custom BroadcastReceiver in Android that intercepts incoming SMS messages, scans them for a specific cryptographic hash, and executes the hidden command without ever notifying the thief that a message was received.</p>
+            
         <h2>4.3 Module Description</h2>
-        <p>We have mainly two modules which are the Background Ghost Tracker and the User Interface Dashboard.</p>
-    </div>
+        <p>The Raksha-Suraksha platform is divided into several highly specialized tactical modules:
+​Master Control Module: The central hub where agents can trigger remote alarms, lock the device screen, or initiate factory data wipes.
+​Live Radar Map Module: Integrates mapping APIs to plot real-time GPS coordinates fetched from the mobile device, allowing agents to track movement trails and set geofence boundaries.
+​Tier-3 Evidence Vault: A secure interface that retrieves and displays intercepted media. If the mobile device captures a photo of the unauthorized user or records ambient audio, it uploads the files to Firebase Storage, which are then accessible via this vault.
+​Message Control Module: The SMS payload generator. It encrypts commands into text strings that can be manually sent from any standard phone to the target device when it loses internet access.
+​App Linking Module: The synchronization gateway that pairs the unique ID of the mobile application instance with the authenticated web dashboard user, ensuring commands are only routed to authorized hardware.</p>
+  </div>
 
     <div class="page numbered-page">
         <h1>CHAPTER 5: CODING</h1>
@@ -332,7 +348,9 @@ public class MainActivity extends AppCompatActivity {
         <h2>6.4 Acceptance Testing</h2>
         <p>Acceptance testing is a test conducted to find if the requirements of a specification or contract are met. Acceptance testing is basically done by the user or customers.</p>
         
-        <h2>6.5 Types of Testing: Black Box & White Box</h2>
+        <h2>6.5 Types of Testing: Black
+            
+            Box & White Box</h2>
         <p>Black Box Testing is defined as a testing technique in which functionality is tested without looking at the internal code structure. White-box testing is a method that tests internal structures or workings of an application.</p>
     </div>
 
