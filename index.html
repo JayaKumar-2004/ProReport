@@ -226,17 +226,19 @@
     <div class="page numbered-page">
         <h1>CHAPTER 1: INTRODUCTION</h1>
         <h2>1.1 Introduction to Raksha-Suraksha</h2>
-        <p>Raksha-Suraksha is the implementation of a military-grade personal safety and anti-theft application using Android (Java) and Python backend servers. The rapid development of wireless technologies over the last decade has added great convenience to our lives, but it has also increased the risk of digital and physical theft.</p>
-        <p>To accommodate different security requirements, Raksha-Suraksha acts as an offline-first command center. It leverages existing SMS traffic to achieve communication even when internet connections are disabled by thieves. It utilizes hash maps and local SQLite databases for accessing data securely.</p>
+        <p>The rapid evolution of mobile technology has brought unprecedented convenience, but it has simultaneously introduced critical vulnerabilities regarding device theft, data breaches, and personal physical security. Traditional anti-theft applications heavily rely on active internet connections, rendering them completely ineffective the moment a device is taken offline by a malicious actor</p>
+        <p>​To bridge this critical security gap, the "Raksha-Suraksha Tactical Command System" was developed. Raksha-Suraksha is an enterprise-grade, bidirectional command-and-control (C2) platform engineered to secure remote physical mobile hardware. The system utilizes a hybrid architecture, combining the high-speed data synchronization of Firebase Realtime Database for active-internet scenarios with an encrypted Offline SMS Telemetry protocol for disconnected environments. This dual-layer approach allows authorized agents to monitor live GPS locations, trigger hardware alarms, access camera/microphone feeds, and wipe sensitive data seamlessly from a centralized web terminal.</p>
         
         <h2>1.2 Problem Definition</h2>
-        <p>In this project we will be creating a simple but highly effective application which helps to protect devices without the need for active internet. This will be very useful to secure personal data, track stolen devices offline, and emit SOS signals during emergencies.</p>
+        <p>Currently available device tracking solutions inherently suffer from a "single point of failure" architecture: they require continuous Wi-Fi or Cellular Data connectivity to function. When a mobile device is compromised, the standard operating procedure for unauthorized users is to immediately disable internet access or remove the primary SIM card, permanently severing the connection to cloud-based tracking services.</p>
+       <p>​Furthermore, existing solutions lack granular hardware control, preventing owners from actively securing their physical surroundings or gathering discrete multimedia evidence of the perpetrator. There is an urgent requirement for a resilient security ecosystem that can maintain command authority over a target device even in offline states, executing critical locking and tracking payloads without reliance on standard IP networks.</p>
         
         <h2>1.3 Objectives</h2>
-        <p>Raksha-Suraksha is designed to help users secure their mobile devices autonomously. The app typically has an interface that allows users to manage secure passwords, track locations via SMS, and trigger loud alarms even if the device is in DND mode.</p>
+        <p>The primary objective of this project is to architect and deploy a highly secure, multi-module web terminal capable of asynchronous communication with mobile companion nodes. The specific objectives include:</p>
+        <p>a)Real-Time Telemetry: To develop a Live Satellite Radar module that provides sub-10 second GPS coordinate updates, trail visualization, and geofencing alerts.</p>
         
         <h2>1.4 Scope</h2>
-        <p>The project aims to develop a robust and efficient security system capable of running in the background without draining battery. This involves implementing algorithms for parsing SMS commands, mapping GPS coordinates, and handling special cases such as crash detection via gravity sensors.</p>
+        <p>The scope of the Raksha-Suraksha project encompasses the full-stack development of a web-based command dashboard and its integration protocols for mobile environments. The system features modular architecture, specifically including Master Control, Live Radar Mapping, App Linking, and Message Control modules. The project focuses heavily on creating a responsive, high-performance UI/UX to ensure operational efficiency for the end-user across both desktop and mobile viewports, prioritizing security, low-latency command execution, and system reliability.</p>
     </div>
 
     <div class="page numbered-page">
