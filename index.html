@@ -1,1 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raksha-Suraksha | Project Documentary</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* ════ GLOBAL RESET & VARS ════ */
+        :root {
+            --bg-body: #f8fafc;
+            --bg-sidebar: #0f172a;
+            --text-main: #334155;
+            --text-sidebar: #cbd5e1;
+            --accent: #00E5FF;
+            --accent-dark: #0284c7;
+            --page-bg: #ffffff;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--bg-body); color: var(--text-main); display: flex; height: 100vh; overflow: hidden; }
+
+        /* ════ SIDEBAR (TABLE OF CONTENTS) ════ */
+        .sidebar {
+            width: 300px; background-color: var(--bg-sidebar); color: var(--text-sidebar);
+            display: flex; flex-direction: column; overflow-y: auto; flex-shrink: 0;
+            border-right: 4px solid var(--accent);
+        }
+        .sidebar-header { padding: 30px 20px; border-bottom: 1px solid #1e293b; text-align: center; }
+        .sidebar-header h2 { font-family: 'Merriweather', serif; color: #fff; font-size: 1.2rem; letter-spacing: 1px; }
+        .sidebar-header p { font-size: 0.8rem; color: var(--accent); margin-top: 5px; font-weight: 600; }
+        
+        .toc-nav { padding: 20px 0; display: flex; flex-direction: column; }
+        .toc-nav a {
+            padding: 12px 25px; color: var(--text-sidebar); text-decoration: none;
+            font-size: 0.95rem; font-weight: 500; transition: 0.2s; border-left: 3px solid transparent;
+        }
+        .toc-nav a:hover { background-color: #1e293b; color: #fff; border-left-color: var(--accent); }
+        .toc-nav .toc-chapter { font-weight: 700; color: #fff; margin-top: 10px; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px; }
+
+        /* ════ MAIN CONTENT AREA (THE REPORT) ════ */
+        .main-content {
+            flex-grow: 1; overflow-y: auto; padding: 40px; scroll-behavior: smooth;
+        }
+
+        /* ════ ACADEMIC PAGE STYLING ════ */
+        .document-page {
+            background: var(--page-bg); max-width: 850px; margin: 0 auto 50px auto;
+            padding: 60px 80px; box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            border-radius: 8px; border: 1px solid #e2e8f0;
+        }
+
+        /* Typography */
+        h1, h2, h3 { font-family: 'Merriweather', serif; color: #0f172a; margin-bottom: 20px; }
+        .document-page p { font-size: 1.05rem; line-height: 1.8; margin-bottom: 20px; text-align: justify; }
+        .document-page ul { margin-left: 20px; margin-bottom: 20px; line-height: 1.8; }
+        .document-page li { font-size: 1.05rem; margin-bottom: 10px; }
+
+        /* Cover Page Specifics */
+        .cover-page { text-align: center; }
+        .cover-logo { width: 120px; height: 120px; margin: 30px auto; background: #e2e8f0; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 3rem; }
+        .cover-title { font-size: 2.2rem; font-weight: 700; color: var(--accent-dark); margin: 20px 0; text-transform: uppercase; letter-spacing: 2px; }
+        .cover-subtitle { font-size: 1.1rem; font-weight: 600; color: #475569; margin-bottom: 40px; }
+        .cover-details { font-size: 1.1rem; line-height: 1.8; margin-top: 40px; font-weight: 500; }
+        
+        .signature-block { display: flex; justify-content: space-between; margin-top: 80px; }
+        .signature-line { width: 45%; border-top: 1px solid #000; padding-top: 10px; text-align: center; font-weight: 600; }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            body { flex-direction: column; }
+            .sidebar { width: 100%; height: auto; flex-shrink: 1; border-right: none; border-bottom: 4px solid var(--accent); }
+            .toc-nav { flex-direction: row; overflow-x: auto; white-space: nowrap; padding: 10px; }
+            .main-content { padding: 20px; }
+            .document-page { padding: 40px 30px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ════ SIDEBAR NAVIGATION ════ -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <h2>PROJECT DOCUMENTARY</h2>
+            <p>BCA Final Year Report</p>
+        </div>
+        <nav class="toc-nav">
+            <a href="#cover">Title Page</a>
+            <a href="#declaration">Declaration</a>
+            <a href="#certificate">Certificates</a>
+            <a href="#acknowledgement">Acknowledgement</a>
+            
+            <a href="#chapter1" class="toc-chapter">Chapter 1: Introduction</a>
+            <a href="#chapter1-1">1.1 Introduction to System</a>
+            <a href="#chapter1-2">1.2 Problem Definition</a>
+            <a href="#chapter1-3">1.3 Objectives & Scope</a>
+
+            <a href="#chapter2" class="toc-chapter">Chapter 2: Literature Survey</a>
+            <a href="#chapter2-1">2.1 Existing System</a>
+            <a href="#chapter2-2">2.2 Proposed System</a>
+
+            <a href="#chapter3" class="toc-chapter">Chapter 3: System Architecture</a>
+            
+            <a href="#chapter4" class="toc-chapter">Chapter 4: Implementation</a>
+            <a href="#chapter5" class="toc-chapter">Chapter 5: Conclusion</a>
+        </nav>
+    </aside>
+
+    <!-- ════ MAIN REPORT CONTENT ════ -->
+    <main class="main-content">
+
+        <!-- COVER PAGE -->
+        <div class="document-page cover-page" id="cover">
+            <h3>A PROJECT ON</h3>
+            <div class="cover-logo">🛡️</div>
+            <h1 class="cover-title">RAKSHA-SURAKSHA:<br>TACTICAL COMMAND SYSTEM</h1>
+            <p class="cover-subtitle">UNDERTAKEN AT<br>HARSHA INSTITUTE OF MANAGEMENT STUDIES</p>
+            
+            <div class="cover-details">
+                <p><strong>By</strong><br>Suryakant Chaudhary<br>S Jaya Kumar</p>
+                <br>
+                <p><strong>SUBMITTED TO</strong><br>BANGALORE UNIVERSITY, Bangalore</p>
+                <br>
+                <p>In partial fulfilment of the requirement for the Award of the Degree of<br><strong>Bachelor of Computer Application (B.C.A)</strong><br>APRIL 2026</p>
+                <br>
+                <p><strong>GUIDED BY</strong><br>PROF. NAGA SUMA C.V<br>Computer Application Department<br>HARSHA INSTITUTE OF MANAGEMENT STUDIES, NELAMANGALA</p>
+            </div>
+        </div>
+
+        <!-- DECLARATION -->
+        <div class="document-page" id="declaration">
+            <h2 style="text-align: center; text-transform: uppercase;">Declaration</h2>
+            <br>
+            <p>We, Suryakant Chaudhary and S Jaya Kumar, students of Harsha Institute of Management Studies, hereby declare that the project titled <strong>"RAKSHA-SURAKSHA: TACTICAL COMMAND SYSTEM"</strong> submitted to Bangalore University, Bangalore, is our original work.</p>
+            <p>This project has been completed under the guidance of Prof. Naga Suma C.V, Computer Application Department, Harsha Institute of Management Studies. The information presented in this project is gathered from reliable sources, and any references have been duly acknowledged.</p>
+            <p>We affirm that this project has not been submitted, in part or whole, to any other university or institution for any academic certification. The work presented is a result of our sincere effort and dedication toward fulfilling the requirements for the Bachelor of Computer Application (B.C.A) degree.</p>
+            
+            <div class="signature-block">
+                <div class="signature-line">
+                    <br>Prof. Naga Suma C.V<br>(Project Guide)
+                </div>
+                <div class="signature-line">
+                    <br>Suryakant Chaudhary & S Jaya Kumar<br>(Students)
+                </div>
+            </div>
+        </div>
+
+        <!-- CERTIFICATE -->
+        <div class="document-page" id="certificate">
+            <h2 style="text-align: center; text-transform: uppercase;">Certificate from the Principal</h2>
+            <br>
+            <p>This is to certify that the project titled <strong>"RAKSHA-SURAKSHA: TACTICAL COMMAND SYSTEM"</strong> undertaken by Suryakant Chaudhary and S Jaya Kumar under the guidance of Prof. Naga Suma C.V, Computer Application Department, has been successfully completed as part of the curriculum requirements for the Bachelor of Computer Application (B.C.A) degree at Harsha Institute of Management Studies, affiliated with Bangalore University.</p>
+            <p>The project work has been carried out in accordance with the academic standards and guidelines set by the institution. The students have demonstrated diligence, analytical skills, and technical proficiency in executing this project.</p>
+            <p>I hereby acknowledge the efforts put forth by the students in completing this project and congratulate them on their achievement.</p>
+            
+            <div class="signature-block" style="margin-top: 100px;">
+                <div class="signature-line" style="text-align: left; border: none;">
+                    <strong>Place:</strong> Nelamangala<br>
+                    <strong>Date:</strong> ____________
+                </div>
+                <div class="signature-line">
+                    <br>Signature of Principal<br>(Seal of the Institute)
+                </div>
+            </div>
+        </div>
+
+        <!-- ACKNOWLEDGEMENT -->
+        <div class="document-page" id="acknowledgement">
+            <h2 style="text-align: center; text-transform: uppercase;">Acknowledgement</h2>
+            <br>
+            <p>We express our sincere gratitude to Harsha Institute of Management Studies for providing us with the opportunity to undertake this project on <strong>"RAKSHA-SURAKSHA: TACTICAL COMMAND SYSTEM"</strong>. This project has been an enriching learning experience, allowing us to explore the technical and practical aspects of mobile security, cloud architecture, and remote telemetry.</p>
+            <p>We extend our heartfelt thanks to <strong>Prof. Naga Suma C.V</strong>, our esteemed guide, for her invaluable support, encouragement, and expert guidance throughout the development of this project. Her insightful feedback and mentorship have been instrumental in shaping the depth and quality of our work.</p>
+            <p>We are also grateful to Bangalore University for its academic structure, which fosters research and innovation. The knowledge acquired during this project will undoubtedly serve as a foundation for our future professional endeavors.</p>
+            <p>Finally, we extend our appreciation to our family, friends, and peers for their continuous encouragement and unwavering support. Thank you.</p>
+            <p style="text-align: right; margin-top: 40px; font-weight: bold;">
+                Suryakant Chaudhary<br>
+                S Jaya Kumar<br>
+                BCA (VI SEM)
+            </p>
+        </div>
+
+        <!-- CHAPTER 1: INTRODUCTION -->
+        <div class="document-page" id="chapter1">
+            <h1 style="text-align: center;">CHAPTER 1: INTRODUCTION</h1>
+            <hr style="margin-bottom: 30px; border: 1px solid #e2e8f0;">
+            
+            <h3 id="chapter1-1">1.1 Introduction to Raksha-Suraksha</h3>
+            <p>The rapid evolution of mobile technology has brought unprecedented convenience, but it has simultaneously introduced critical vulnerabilities regarding device theft, data breaches, and personal security. Traditional anti-theft applications heavily rely on active internet connections, rendering them completely ineffective the moment a device is taken offline by a malicious actor.</p>
+            <p>To bridge this critical security gap, the Raksha-Suraksha Tactical Command System was developed. Raksha-Suraksha is an enterprise-grade, bidirectional command-and-control (C2) platform engineered to secure remote physical mobile hardware. The system utilizes a hybrid architecture, combining the high-speed data synchronization of Firebase Realtime Database for active-internet scenarios, with an offline SMS telemetry protocol for disconnected environments.</p>
+
+            <h3 id="chapter1-2">1.2 Problem Definition</h3>
+            <p>Currently available device tracking solutions inherently suffer from a "single point of failure" architecture: they require continuous Wi-Fi or Cellular Data connectivity to function. When a mobile device is compromised, the standard operating procedure for unauthorized users is to immediately disable internet access or remove the primary SIM card, permanently severing the connection to cloud-based tracking services.</p>
+            <p>There is an urgent requirement for a resilient security ecosystem that can maintain command authority over a target device even in offline states, executing critical locking and tracking payloads without reliance on standard IP networks.</p>
+
+            <h3 id="chapter1-3">1.3 Objectives & Scope</h3>
+            <p>The primary objective of this project is to architect and deploy a highly secure, multi-module web terminal capable of asynchronous communication with mobile companion nodes. The specific objectives include:</p>
+            <ul>
+                <li><strong>Real-Time Telemetry:</strong> To develop a Live Satellite Radar module that provides sub-10 second GPS coordinate updates and trail visualization.</li>
+                <li><strong>Offline Hardware Control:</strong> To engineer an SMS payload management system capable of broadcasting encrypted command strings to field devices.</li>
+                <li><strong>Secure Evidence Vaulting:</strong> To implement a secure cloud storage pipeline integrated with Firebase for audio and visual data extraction.</li>
+            </ul>
+        </div>
+
+        <!-- CHAPTER 2: LITERATURE SURVEY -->
+        <div class="document-page" id="chapter2">
+            <h1 style="text-align: center;">CHAPTER 2: LITERATURE SURVEY</h1>
+            <hr style="margin-bottom: 30px; border: 1px solid #e2e8f0;">
+
+            <h3 id="chapter2-1">2.1 Existing System</h3>
+            <p>Existing mobile security systems (such as generic "Find My Device" applications) primarily focus on consumer-grade tracking. They offer basic functionalities like ringing a device or viewing its last known location. However, these systems fall short in tactical environments. They lack bidirectional communication, fail entirely without an internet connection, and do not provide administrators with deep hardware controls (such as intercepting audio or locking individual applications dynamically).</p>
+
+            <h3 id="chapter2-2">2.2 Proposed System</h3>
+            <p>The proposed Raksha-Suraksha system replaces outdated, single-layer security concepts with a robust, hybrid-cloud architecture. The system leverages modern web frameworks (HTML5, CSS3, JavaScript) on the frontend, heavily integrated with Google Firebase as the Backend-as-a-Service (BaaS).</p>
+            <p>Unlike standard systems, the proposed dashboard features "Tactical Modules" designed for specific operational needs. By using asynchronous listeners and secure REST APIs, the web terminal can instantly push command states (e.g., <code>camera_on</code>, <code>alarm_trigger</code>, <code>lock_device</code>) to the Firebase Realtime Database. The companion mobile node continuously listens for these state changes and executes the hardware overrides locally.</p>
+        </div>
+
+        <!-- CHAPTER 3: SYSTEM ARCHITECTURE -->
+        <div class="document-page" id="chapter3">
+            <h1 style="text-align: center;">CHAPTER 3: SYSTEM ARCHITECTURE</h1>
+            <hr style="margin-bottom: 30px; border: 1px solid #e2e8f0;">
+            <p>The architecture of Raksha-Suraksha follows a strict Client-Server-Node model. The web dashboard acts as the Master Controller, Firebase acts as the central state-management server, and the mobile application acts as the tactical node.</p>
+            <ul>
+                <li><strong>Frontend Web Console:</strong> Built using vanilla HTML/JS with custom Glassmorphism CSS for a high-tech, responsive user experience.</li>
+                <li><strong>Firebase Authentication:</strong> Ensures that only authorized agents can access the command terminal using 256-bit encrypted sessions.</li>
+                <li><strong>Firebase Realtime Database:</strong> Acts as the bridge. When an agent clicks a command on the web, a JSON tree is updated in milliseconds. The Android device listens to this specific tree and triggers native Java/Kotlin Android APIs.</li>
+            </ul>
+        </div>
+
+        <!-- CHAPTER 4 & 5 -->
+        <div class="document-page" id="chapter4">
+            <h1 style="text-align: center;">CHAPTER 4: IMPLEMENTATION & CONCLUSION</h1>
+            <hr style="margin-bottom: 30px; border: 1px solid #e2e8f0;">
+            
+            <h3>Implementation Details</h3>
+            <p>The project was implemented using web technologies integrated via the Firebase SDK. The user interface was divided into modular pages (Dashboard, Live Map, Master Control, App Linking) to ensure optimal browser performance and avoid memory leaks during prolonged tactical monitoring sessions. Data exchange is handled entirely through JSON payloads, ensuring lightweight data transfer ideal for variable network conditions.</p>
+
+            <h3 id="chapter5" style="margin-top: 40px;">Conclusion</h3>
+            <p>The Raksha-Suraksha Tactical Command System successfully demonstrates the viability of a hybrid online/offline command architecture for mobile security. By shifting the control paradigm from passive tracking to active, remote hardware domination, this project provides a scalable foundation for advanced enterprise device management and personal asset protection.</p>
+            
+            <h3 style="margin-top: 40px;">Future Enhancements</h3>
+            <p>Future iterations of the platform aim to integrate Machine Learning models to analyze sensor data for behavioral anomalies (e.g., detecting if a device is forcefully snatched based on accelerometer data) and implementing automated facial recognition for the Cloud Evidence Vault.</p>
+        </div>
+
+    </main>
+
+</body>
+</html>
 
