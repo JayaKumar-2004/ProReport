@@ -16,11 +16,14 @@
            SCREEN MODE (For Acode / Phone Browser)
            --------------------------------------------------- */
         @media screen {
-            body { background-color: #555; padding: 20px 0; }
+            body { background-color: #555; padding: 10px; }
             .page {
-                width: 210mm; min-height: 297mm; margin: 0 auto 20px auto;
+                width: 100%; max-width: 210mm; 
+                height: 297mm; /* Strict A4 Height */
+                margin: 0 auto 20px auto;
                 background: white; border: 2px solid #000; padding: 15mm;
                 position: relative; box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+                overflow: hidden; /* Prevents content mixing visually */
             }
         }
 
@@ -28,13 +31,19 @@
            PRINT MODE (Strict A4 PDF Export)
            --------------------------------------------------- */
         @media print {
-            @page { size: A4; margin: 15mm; }
+            /* Minimal margin to remove empty space outside the border */
+            @page { size: A4; margin: 5mm; } 
             body { background-color: white; }
             .page {
-                height: 267mm; /* Exact A4 height minus margins */
-                border: 2px solid #000; padding: 15mm;
-                page-break-after: always; position: relative;
-                margin: 0; box-shadow: none;
+                height: 287mm; /* Exact A4 height (297) minus the 5mm top/bottom margin */
+                border: 2px solid #000; 
+                padding: 15mm;
+                page-break-after: always; 
+                page-break-inside: avoid; /* Completely stops content from mixing pages */
+                position: relative;
+                margin: 0; 
+                box-shadow: none;
+                overflow: hidden; 
             }
             /* Code blocks automatically break onto new pages */
             pre { page-break-inside: auto; }
@@ -66,7 +75,9 @@
         .numbered-page { counter-increment: pageNum; }
         .numbered-page::after {
             content: "Page | " counter(pageNum);
-            position: absolute; bottom: 15mm; right: 15mm;
+            position: absolute; 
+            bottom: 5mm; /* Pushed further down to the edge */
+            right: 15mm;
             font-size: 12pt; font-weight: bold; background: white; padding-left: 10px;
         }
 
@@ -76,10 +87,7 @@
 </head>
 <body>
 
-    <!-- ==========================================
-         TITLE PAGE (No Page Number)
-         ========================================== -->
-    <div class="page">
+    <div class="page numbered-page">
         <div class="cover-page">
             <h3 style="text-decoration: none;">-A PROJECT ON</h3>
             <h2>"RAKSHA-SURAKSHA"</h2>
@@ -100,9 +108,6 @@
         </div>
     </div>
 
-    <!-- ==========================================
-         PAGE 2: DECLARATION
-         ========================================== -->
     <div class="page numbered-page">
         <h1>DECLARATION</h1>
         <p>We, MD Aslam Ansari, Suryakant Chaudary, S Jaya Kumar, and Abhishek, students of Harsha Institute of Management Studies, hereby declare that the project titled <strong>"RAKSHA-SURAKSHA"</strong> submitted to Bangalore University, Bangalore, is our original work.</p>
@@ -115,9 +120,6 @@
         </div>
     </div>
 
-    <!-- ==========================================
-         PAGE 3: PRINCIPAL CERTIFICATE
-         ========================================== -->
     <div class="page numbered-page">
         <h1>CERTIFICATE FROM THE PRINCIPAL</h1>
         <p style="text-indent: 0; font-weight: bold; text-align: right;">Date: ____________</p>
@@ -133,9 +135,6 @@
         </div>
     </div>
 
-    <!-- ==========================================
-         PAGE 4: CERTIFICATE OF ATTENDANCE
-         ========================================== -->
     <div class="page numbered-page">
         <h1>CERTIFICATE OF ATTENDANCE</h1>
         <p>This is to certify that MD Aslam Ansari, Suryakant Chaudary, S Jaya Kumar, and Abhishek, students of Harsha Institute of Management Studies, have successfully attended and participated in the academic sessions related to the project titled <strong>"RAKSHA-SURAKSHA."</strong></p>
@@ -150,9 +149,6 @@
         <p style="text-indent: 0; text-align: center; margin-top: 40px; font-weight: bold;">Seal of Institution</p>
     </div>
 
-    <!-- ==========================================
-         PAGE 5: PROJECT APPROVAL CERTIFICATE
-         ========================================== -->
     <div class="page numbered-page">
         <h1>PROJECT APPROVAL CERTIFICATE</h1>
         <p style="text-indent: 0; font-weight: bold; text-align: right;">Date: ____________</p>
@@ -168,9 +164,6 @@
         <p style="text-indent: 0; text-align: center; margin-top: 40px; font-weight: bold;">Seal Of Institution</p>
     </div>
 
-    <!-- ==========================================
-         PAGE 6: ACKNOWLEDGEMENT
-         ========================================== -->
     <div class="page numbered-page">
         <h1>ACKNOWLEDGEMENT</h1>
         <p>We express our sincere gratitude to Harsha Institute of Management Studies for providing us with the opportunity to undertake this project on "RAKSHA-SURAKSHA". This project has been an enriching learning experience, allowing us to explore the technical and practical aspects of mobile security systems.</p>
@@ -181,9 +174,6 @@
         <p style="text-indent: 0; text-align: right; font-weight: bold; margin-top: 40px;">MD Aslam Ansari<br>Suryakant Chaudary<br>S Jaya Kumar<br>Abhishek<br>BCA (VI SEM)</p>
     </div>
 
-    <!-- ==========================================
-         PAGE 7-8: TABLE OF CONTENTS
-         ========================================== -->
     <div class="page numbered-page">
         <h1>TABLE OF CONTENTS</h1>
         <table class="toc-table">
@@ -206,9 +196,6 @@
         </table>
     </div>
 
-    <!-- ==========================================
-         CHAPTERS 1 TO 4 (Pages 10 to 43 generated here)
-         ========================================== -->
     <div class="page numbered-page">
         <h1>CHAPTER 1: INTRODUCTION</h1>
         <h2>1.1 Introduction to Raksha-Suraksha</h2>
@@ -266,16 +253,9 @@
         <p>We have mainly two modules which are the Background Ghost Tracker and the User Interface Dashboard.</p>
     </div>
 
-    <!-- ==========================================
-         CHAPTER 5: CODING (THIS IS HOW YOU REACH 57 PAGES)
-         ========================================== -->
     <div class="page numbered-page">
         <h1>CHAPTER 5: CODING</h1>
         <p>Below is the core implementation source code for the Raksha-Suraksha project.</p>
-        
-        <!-- INSTRUCTIONS FOR JACK: 
-             Copy and paste ALL your Java and XML code directly below this line inside the <pre> tags. 
-             If you paste 20 pages worth of code, the browser will automatically cut the pages and number them sequentially for you! -->
              
         <pre>
 // MainActivity.java
@@ -300,17 +280,13 @@ public class MainActivity extends AppCompatActivity {
     }
 }
 
-/* 
- * PASTE ALL YOUR OTHER CODE FILES HERE.
+/* * PASTE ALL YOUR OTHER CODE FILES HERE.
  * The more code you paste, the more pages this will automatically generate!
  * Keep pasting until your page counter hits page 46!
  */
         </pre>
     </div>
 
-    <!-- ==========================================
-         CHAPTER 6: SOFTWARE TESTING
-         ========================================== -->
     <div class="page numbered-page">
         <h1>CHAPTER 6: SOFTWARE TESTING</h1>
         <p>There are many different testing levels which help to check behavior and performance for software testing. These testing levels are designed to recognize missing areas and reconciliation between the development lifecycle states.</p>
@@ -331,16 +307,9 @@ public class MainActivity extends AppCompatActivity {
         <p>Black Box Testing is defined as a testing technique in which functionality is tested without looking at the internal code structure. White-box testing is a method that tests internal structures or workings of an application.</p>
     </div>
 
-    <!-- ==========================================
-         CHAPTER 7: RESULTS/SCREENSHOTS
-         ========================================== -->
     <div class="page numbered-page">
         <h1>CHAPTER 7: RESULTS/SCREENSHOTS</h1>
         <p>Below are the visual results and working interface of the Raksha-Suraksha project.</p>
-        
-        <!-- INSTRUCTIONS FOR JACK: 
-             Add your app screenshots here using standard image tags like below. 
-             Make them big so they take up 2-3 pages! -->
              
         <div style="border: 2px dashed #999; padding: 100px; text-align: center; margin-bottom: 30px;">
             <h3>[ INSERT APP SCREENSHOT 1 HERE ]</h3>
@@ -351,18 +320,12 @@ public class MainActivity extends AppCompatActivity {
         </div>
     </div>
 
-    <!-- ==========================================
-         CHAPTER 8: CONCLUSION
-         ========================================== -->
     <div class="page numbered-page">
         <h1>CHAPTER 8: CONCLUSION</h1>
         <p>This is the implementation of the Raksha-Suraksha security application using native Android development. This system was designed to transmit emergency messages securely across long distances even when offline.</p>
         <p>The design makes use of programming languages Java and Python. This design can be used in different areas like personal safety, military coordination, and external affairs. By using this system, there is no need for physical tapping devices for transmission, thus overcoming traditional security problems.</p>
     </div>
 
-    <!-- ==========================================
-         CHAPTER 9: FUTURE ENHANCEMENT
-         ========================================== -->
     <div class="page numbered-page">
         <h1>CHAPTER 9: FUTURE ENHANCEMENT</h1>
         <ul>
@@ -372,9 +335,6 @@ public class MainActivity extends AppCompatActivity {
         </ul>
     </div>
 
-    <!-- ==========================================
-         CHAPTER 10: BIBLIOGRAPHY
-         ========================================== -->
     <div class="page numbered-page">
         <h1>CHAPTER 10: BIBLIOGRAPHY</h1>
         <h2>Websites:</h2>
@@ -394,4 +354,4 @@ public class MainActivity extends AppCompatActivity {
     </div>
 
 </body>
-</html>
+    </html>
