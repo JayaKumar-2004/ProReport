@@ -1,105 +1,92 @@
-<!DOCTYPE html>
+<!DOCTYE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Raksha Suraksha - 57 Page Full Report</title>
     <style>
         /* Global Reset and Typography */
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body {
-            font-family: "Times New Roman", Times, serif;
-            color: #000;
-            counter-reset: pageNum;
-        }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+    font-family: "Times New Roman", Times, serif;
+    color: #000;
+    counter-reset: pageNum;
+    background-color: #555;
+    padding: 20px;
+}
 
-        /* ---------------------------------------------------
-           SCREEN MODE (For Acode / Phone Browser)
-           --------------------------------------------------- */
-        @media screen {
-            body { background-color: #555; padding: 10px; }
-            .page {
-                width: 100%; max-width: 210mm; 
-                height: 297mm; /* Strict A4 Height */
-                margin: 0 auto 20px auto;
-                background: white; border: 2px solid #000; padding: 15mm;
-                position: relative; box-shadow: 0 5px 15px rgba(0,0,0,0.5);
-                overflow: hidden; 
-            }
-        }
+/* ---------------------------------------------------
+   FLEXIBLE PAGE LAYOUT (Screen & Base)
+   --------------------------------------------------- */
+.page {
+    width: 100%; 
+    max-width: 210mm; /* A4 Width */
+    min-height: 297mm; /* Allows page to stretch if text is too long */
+    margin: 0 auto 30px auto;
+    background: white; 
+    border: 2px solid #000; /* Required border */
+    padding: 15mm 15mm 25mm 15mm; /* Extra bottom padding for numbering */
+    position: relative; 
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+    page-break-after: always; /* Forces new page when printing */
+}
 
-        /* ---------------------------------------------------
-           PRINT MODE (Strict A4 PDF Export)
-           --------------------------------------------------- */
-        @media print {
-            @page { size: A4; margin: 5mm; } 
-            body { background-color: white; }
-            .page {
-                height: 287mm; 
-                border: 2px solid #000; 
-                padding: 15mm;
-                page-break-after: always; 
-                page-break-inside: avoid; 
-                position: relative;
-                margin: 0; 
-                box-shadow: none;
-                overflow: hidden; 
-            }
-            pre { page-break-inside: avoid; }
-            tr { page-break-inside: avoid; }
-        }
+/* ---------------------------------------------------
+   PRINT MODE 
+   --------------------------------------------------- */
+@media print {
+    @page { size: A4; margin: 5mm; } 
+    body { background-color: white; padding: 0; }
+    .page {
+        margin: 0; 
+        box-shadow: none;
+        border: 2px solid #000;
+        min-height: 287mm; 
+    }
+    pre, tr, li { page-break-inside: avoid; }
+}
 
-        /* ---------------------------------------------------
-           FLOW PAGE (For Page 8 onwards to prevent locking)
-           --------------------------------------------------- */
-        @media screen {
-            .flow-page {
-                height: auto !important; 
-                min-height: 297mm; 
-                overflow: visible !important; 
-            }
-        }
-        @media print {
-            .flow-page {
-                height: auto !important; 
-                min-height: 287mm; 
-                overflow: visible !important; 
-                page-break-inside: auto; 
-            }
-        }
+/* ---------------------------------------------------
+   TEXT & LAYOUT STYLES
+   --------------------------------------------------- */
+h1 { text-align: center; font-size: 20pt; margin-bottom: 20px; text-decoration: underline; text-transform: uppercase; }
+h2 { font-size: 16pt; margin-top: 20px; margin-bottom: 10px; text-transform: uppercase; }
+h3 { font-size: 14pt; margin-top: 15px; margin-bottom: 10px; text-align: center;}
+p { font-size: 14pt; text-align: justify; line-height: 1.8; margin-bottom: 15px; text-indent: 40px; }
+ul { font-size: 14pt; line-height: 1.8; margin-bottom: 15px; margin-left: 40px; }
+li { margin-bottom: 10px; text-align: justify; }
 
-        /* ---------------------------------------------------
-           TEXT & LAYOUT STYLES
-           --------------------------------------------------- */
-        h1 { text-align: center; font-size: 20pt; margin-bottom: 20px; text-decoration: underline; text-transform: uppercase; }
-        h2 { font-size: 16pt; margin-top: 20px; margin-bottom: 10px; text-transform: uppercase; }
-        h3 { font-size: 14pt; margin-top: 15px; margin-bottom: 10px; text-align: center;}
-        p { font-size: 14pt; text-align: justify; line-height: 1.8; margin-bottom: 15px; text-indent: 40px; }
-        ul { font-size: 14pt; line-height: 1.8; margin-bottom: 15px; margin-left: 40px; }
-        li { margin-bottom: 10px; text-align: justify; }
+/* Cover Page Formatting */
+.cover-page { text-align: center; height: 100%; display: flex; flex-direction: column; justify-content: center; }
+.cover-page p { text-align: center; text-indent: 0; }
+.cover-page h2 { font-size: 24pt; font-weight: bold; margin-bottom: 20px; text-decoration: none;}
 
-        /* Cover Page Formatting */
-        .cover-page { text-align: center; height: 100%; display: flex; flex-direction: column; justify-content: center; }
-        .cover-page p { text-align: center; text-indent: 0; }
-        .cover-page h2 { font-size: 24pt; font-weight: bold; margin-bottom: 20px; text-decoration: none;}
-        
-        /* Table of Contents */
-        .toc-table { width: 100%; font-size: 14pt; line-height: 2; border-collapse: collapse; margin-top: 20px; }
-        .toc-table th { border-bottom: 2px solid #000; padding-bottom: 10px; text-align: left; }
-        .toc-table td { border-bottom: 1px dotted #ccc; padding: 5px 0; }
-        .toc-page { text-align: right; }
+/* Table of Contents */
+.toc-table { width: 100%; font-size: 14pt; line-height: 2; border-collapse: collapse; margin-top: 20px; }
+.toc-table th { border-bottom: 2px solid #000; padding-bottom: 10px; text-align: left; }
+.toc-table td { border-bottom: 1px dotted #ccc; padding: 5px 0; }
+.toc-page { text-align: right; }
 
-        /* Automatic Page Numbering Engine */
-        .numbered-page { counter-increment: pageNum; }
-        .numbered-page::after {
-            content: "Page | " counter(pageNum);
-            position: absolute; 
-            bottom: 5mm; 
-            right: 15mm;
-            font-size: 12pt; font-weight: bold; background: white; padding-left: 10px;
-        }
+/* Automatic Page Numbering Engine */
+.numbered-page { counter-increment: pageNum; }
+.numbered-page::after {
+    content: "Page | " counter(pageNum);
+    position: absolute; 
+    bottom: 5mm; 
+    right: 15mm;
+    font-size: 12pt; font-weight: bold; background: white; padding-left: 10px;
+}
 
-        /* Code block styling */
-        pre { background: #f4f4f4; border: 1px solid #ddd; padding: 10px; font-size: 10pt; white-space: pre-wrap; word-wrap: break-word; line-height: 1.4; height: 100%; overflow: hidden;}
+/* Code block styling */
+pre { 
+    background: #f4f4f4; 
+    border: 1px solid #ddd; 
+    padding: 10px; 
+    font-size: 10pt; 
+    white-space: pre-wrap; 
+    word-wrap: break-word; 
+    line-height: 1.4; 
+}     
+    
     </style>
 </head>
 <body>
