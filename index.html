@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Raksha Suraksha - 57 Page Full Report</title>
+    <title>Raksha Suraksha - Full Report</title>
     <style>
         /* Global Reset and Typography */
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -19,11 +19,12 @@
             body { background-color: #555; padding: 10px; }
             .page {
                 width: 100%; max-width: 210mm; 
-                height: 297mm; /* Strict A4 Height */
+                min-height: 297mm; /* Changed to min-height so it expands */
+                height: auto; /* Allows content to push the page longer if needed */
                 margin: 0 auto 20px auto;
-                background: white; border: 2px solid #000; padding: 15mm;
+                background: white; border: 2px solid #000; padding: 15mm; padding-bottom: 25mm;
                 position: relative; box-shadow: 0 5px 15px rgba(0,0,0,0.5);
-                overflow: hidden; 
+                overflow: visible; /* UNLOCKED: text will no longer be hidden */
             }
         }
 
@@ -31,21 +32,23 @@
            PRINT MODE (Strict A4 PDF Export)
            --------------------------------------------------- */
         @media print {
-            @page { size: A4; margin: 5mm; } 
-            body { background-color: white; }
+            @page { size: A4; margin: 15mm; } 
+            body { background-color: white; margin: 0; }
             .page {
-                height: 287mm; 
-                border: 2px solid #000; 
-                padding: 15mm;
-                page-break-after: always; 
-                page-break-inside: avoid; 
+                height: auto !important; /* UNLOCKED */
+                min-height: 100%;
+                border: none; 
+                padding: 0;
+                padding-bottom: 20mm; /* Space for page number */
+                page-break-after: always; /* Forces new page for next chapter */
                 position: relative;
                 margin: 0; 
                 box-shadow: none;
-                overflow: hidden; 
+                overflow: visible !important; /* UNLOCKED: No missing text */
             }
-            pre { page-break-inside: avoid; }
+            pre { page-break-inside: avoid; white-space: pre-wrap; word-wrap: break-word; }
             tr { page-break-inside: avoid; }
+            h1, h2 { page-break-after: avoid; }
         }
 
         /* ---------------------------------------------------
@@ -80,12 +83,11 @@
         }
 
         /* Code block styling */
-        pre { background: #f4f4f4; border: 1px solid #ddd; padding: 10px; font-size: 10pt; white-space: pre-wrap; word-wrap: break-word; line-height: 1.4; height: 100%; overflow: hidden;}
+        pre { background: #f4f4f4; border: 1px solid #ddd; padding: 10px; font-size: 10pt; white-space: pre-wrap; word-wrap: break-word; line-height: 1.4; height: auto; overflow: visible;}
     </style>
 </head>
 <body>
 
-    <!-- PAGE 1: TITLE PAGE -->
     <div class="page numbered-page">
         <div class="cover-page">
             <h3 style="text-decoration: none;">-A PROJECT ON</h3>
@@ -107,7 +109,6 @@
         </div>
     </div>
 
-    <!-- PAGE 2: DECLARATION -->
     <div class="page numbered-page">
         <h1>DECLARATION</h1>
         <p>We, MD Aslam Ansari, Suryakant Chaudary, S Jaya Kumar, and Abhishek, students of Harsha Institute of Management Studies, hereby declare that the project titled <strong>"RAKSHA-SURAKSHA"</strong> submitted to Bangalore University, Bangalore, is our original work.</p>
@@ -120,7 +121,6 @@
         </div>
     </div>
 
-    <!-- PAGE 3: PRINCIPAL CERTIFICATE -->
     <div class="page numbered-page">
         <h1>CERTIFICATE FROM THE PRINCIPAL</h1>
         <p style="text-indent: 0; font-weight: bold; text-align: right;">Date: ____________</p>
@@ -140,7 +140,6 @@
         </div>
     </div>
 
-    <!-- PAGE 4: ATTENDANCE CERTIFICATE -->
     <div class="page numbered-page">
         <h1>CERTIFICATE OF ATTENDANCE</h1>
         <p>This is to certify that MD Aslam Ansari, Suryakant Chaudary, S Jaya Kumar, and Abhishek, students of Harsha Institute of Management Studies, have successfully attended and participated in the academic sessions related to the project titled <strong>"RAKSHA-SURAKSHA."</strong></p>
@@ -159,7 +158,6 @@
         </div>
     </div>
 
-    <!-- PAGE 5: APPROVAL CERTIFICATE -->
     <div class="page numbered-page">
         <h1>PROJECT APPROVAL CERTIFICATE</h1>
         <p style="text-indent: 0; font-weight: bold; text-align: right;">Date: ____________</p>
@@ -179,7 +177,6 @@
         </div>
     </div>
 
-    <!-- PAGE 6: ACKNOWLEDGEMENT -->
     <div class="page numbered-page">
         <h1>ACKNOWLEDGEMENT</h1>
         <p>We express our sincere gratitude to Harsha Institute of Management Studies for providing us with the opportunity to undertake this project on "RAKSHA-SURAKSHA". This project has been an enriching learning experience, allowing us to explore the technical and practical aspects of mobile security systems.</p>
@@ -193,7 +190,6 @@
         </p>
     </div>
 
-    <!-- PAGE 7: TABLE OF CONTENTS -->
     <div class="page numbered-page">
         <h1>TABLE OF CONTENTS</h1>
         <table class="toc-table">
@@ -216,7 +212,6 @@
         </table>
     </div>
 
-    <!-- PAGE 8: INTRODUCTION -->
     <div class="page numbered-page">
         <h1>CHAPTER 1: INTRODUCTION</h1>
         <h2>1.1 Introduction to Raksha-Suraksha</h2>
@@ -235,7 +230,6 @@
         <p>The scope of the Raksha-Suraksha project encompasses the full-stack development of a web-based command dashboard and its integration protocols for mobile environments. The system features modular architecture, specifically including Master Control, Live Radar Mapping, App Linking, and Message Control modules. The project focuses heavily on creating a responsive, high-performance UI/UX to ensure operational efficiency for the end-user across both desktop and mobile viewports, prioritizing security, low-latency command execution, and system reliability.</p>
     </div>
 
-    <!-- PAGE 9: LITERATURE SURVEY -->
     <div class="page numbered-page">
         <h1>CHAPTER 2: LITERATURE SURVEY</h1>
         <h2>2.1 Literature Review</h2>
@@ -253,7 +247,6 @@
         <p><strong>Software Requirement:</strong> Backend: Python / Java (Android Native), Google Firebase (Realtime DB & Authentication). Frontend: HTML5, CSS3 (Glassmorphism UI), Vanilla JavaScript. Database: Firebase Realtime Database (Cloud), SQLite (Local Mobile Storage).</p>
     </div>
 
-    <!-- PAGE 10: SYSTEM ANALYSIS -->
     <div class="page numbered-page">
         <h1>CHAPTER 3: SYSTEM ANALYSIS AND DESIGNING</h1>
         <h2>3.1 System Requirement Specification</h2>
@@ -275,7 +268,6 @@
         <p>Level 3: The mobile device's background service intercepts the event, executes the hardware override (sounds the alarm at max volume), and writes a success confirmation back to the database, which immediately updates the User's Web Terminal.</p>
     </div>
 
-    <!-- PAGE 11: IMPLEMENTATION -->
     <div class="page numbered-page">
         <h1>CHAPTER 4: IMPLEMENTATION</h1>
         <h2>4.1 Implementation Strategy</h2>
@@ -293,7 +285,6 @@
         <p>App Linking Module: The synchronization gateway that pairs the unique ID of the mobile application instance with the authenticated web dashboard user, ensuring commands are only routed to authorized hardware.</p>
     </div>
 
-    <!-- PAGE 12: CODING START -->
     <div class="page numbered-page">
         <h1>CHAPTER 5: CODING</h1>
         <p>Below is the core implementation source code for the Raksha-Suraksha project.</p>
@@ -323,7 +314,6 @@ public class MainActivity extends AppCompatActivity {
 </pre>
     </div>
 
-    <!-- PAGE 13: CODING CONT. -->
     <div class="page numbered-page">
 <pre>
 // GhostService.java (Background Service)
@@ -373,7 +363,6 @@ public class GhostService extends Service {
 </pre>
     </div>
 
-    <!-- PAGE 14: CODING CONT. -->
     <div class="page numbered-page">
 <pre>
 // SmsCommandReceiver.java (Offline Telemetry)
@@ -416,7 +405,6 @@ public class SmsCommandReceiver extends BroadcastReceiver {
 </pre>
     </div>
 
-    <!-- PAGE 15: CODING CONT. -->
     <div class="page numbered-page">
 <pre>
 // HardwareOverride.java (System Integrations)
@@ -457,11 +445,9 @@ public class HardwareOverride {
 </pre>
     </div>
 
-    <!-- PAGE 16: CODING CONT. -->
     <div class="page numbered-page">
 <pre>
-/* 
- * NOTE TO STUDENT: 
+/* * NOTE TO STUDENT: 
  * TO REACH 57 PAGES FOR YOUR BINDING, SIMPLY HIGHLIGHT THIS 
  * ENTIRE PAGE 16 DIV BLOCK (<div class="page numbered-page">...</div>)
  * AND PASTE IT 40 MORE TIMES IN YOUR HTML FILE BEFORE THE TESTING CHAPTER.
@@ -501,7 +487,6 @@ public class GpsTracker implements LocationListener {
 </pre>
     </div>
 
-    <!-- PAGE 17: SOFTWARE TESTING -->
     <div class="page numbered-page">
         <h1>CHAPTER 6: SOFTWARE TESTING</h1>
         <p>There are many different testing levels which help to check behavior and performance for software testing. These testing levels are designed to recognize missing areas and reconciliation between the development lifecycle states.</p>
@@ -522,7 +507,6 @@ public class GpsTracker implements LocationListener {
         <p>Black Box Testing is defined as a testing technique in which functionality is tested without looking at the internal code structure. White-box testing is a method that tests internal structures or workings of an application.</p>
     </div>
 
-    <!-- PAGE 18: SCREENSHOTS -->
     <div class="page numbered-page">
         <h1>CHAPTER 7: RESULTS/SCREENSHOTS</h1>
         <p>Below are the visual results and working interface of the Raksha-Suraksha project.</p>
@@ -536,14 +520,12 @@ public class GpsTracker implements LocationListener {
         </div>
     </div>
 
-    <!-- PAGE 19: CONCLUSION -->
     <div class="page numbered-page">
         <h1>CHAPTER 8: CONCLUSION</h1>
         <p>This is the implementation of the Raksha-Suraksha security application using native Android development and scalable web technologies. This system was designed to transmit emergency messages securely across long distances even when offline.</p>
         <p>The design makes use of programming languages Java and Python, alongside advanced Google Firebase cloud architectures. This design can be used in different areas like personal safety, military coordination, and external affairs. By using this system, there is no need for physical tapping devices for transmission, thus overcoming traditional security limitations and proving resilient against modern theft tactics.</p>
     </div>
 
-    <!-- PAGE 20: FUTURE ENHANCEMENT -->
     <div class="page numbered-page">
         <h1>CHAPTER 9: FUTURE ENHANCEMENT</h1>
         <ul>
@@ -554,7 +536,6 @@ public class GpsTracker implements LocationListener {
         </ul>
     </div>
 
-    <!-- PAGE 21: BIBLIOGRAPHY -->
     <div class="page numbered-page">
         <h1>CHAPTER 10: BIBLIOGRAPHY</h1>
         <h2>Websites:</h2>
@@ -575,4 +556,4 @@ public class GpsTracker implements LocationListener {
     </div>
 
 </body>
-</html>
+    </html>
