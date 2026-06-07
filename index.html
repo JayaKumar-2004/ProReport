@@ -76,7 +76,7 @@
         .numbered-page::after {
             content: "Page | " counter(pageNum);
             position: absolute; 
-            bottom: 5mm; /* Pushed further down to the edge */
+            bottom: 5mm; 
             right: 15mm;
             font-size: 12pt; font-weight: bold; background: white; padding-left: 10px;
         }
@@ -87,6 +87,7 @@
 </head>
 <body>
 
+    <!-- PAGE 1 -->
     <div class="page numbered-page">
         <div class="cover-page">
             <h3 style="text-decoration: none;">-A PROJECT ON</h3>
@@ -108,6 +109,7 @@
         </div>
     </div>
 
+    <!-- PAGE 2 -->
     <div class="page numbered-page">
         <h1>DECLARATION</h1>
         <p>We, MD Aslam Ansari, Suryakant Chaudary, S Jaya Kumar, and Abhishek, students of Harsha Institute of Management Studies, hereby declare that the project titled <strong>"RAKSHA-SURAKSHA"</strong> submitted to Bangalore University, Bangalore, is our original work.</p>
@@ -120,6 +122,7 @@
         </div>
     </div>
 
+    <!-- PAGE 3 -->
     <div class="page numbered-page">
         <h1>CERTIFICATE FROM THE PRINCIPAL</h1>
         <p style="text-indent: 0; font-weight: bold; text-align: right;">Date: ____________</p>
@@ -129,12 +132,18 @@
         <p>I hereby acknowledge the efforts put forth by the students in completing this project and congratulate them on their achievement.</p>
         
         <p style="text-indent: 0; margin-top: 50px;">Place: Nelamangala<br>Date: ____________</p>
-        <div style="display: flex; justify-content: space-between; margin-top: 50px;">
-            <div style="text-align: center; font-weight: bold; font-size: 12pt;">Signature of Principal</div>
-            <div style="text-align: center; font-weight: bold; font-size: 12pt;">Seal of the Institute</div>
+        
+        <!-- FIXED: Principal and Seal stacked on the right side -->
+        <div style="display: flex; justify-content: flex-end; margin-top: 30px;">
+            <div style="text-align: center; font-weight: bold; font-size: 12pt;">
+                Signature of Principal
+                <br><br><br><br>
+                Seal of the Institute
+            </div>
         </div>
     </div>
 
+    <!-- PAGE 4 -->
     <div class="page numbered-page">
         <h1>CERTIFICATE OF ATTENDANCE</h1>
         <p>This is to certify that MD Aslam Ansari, Suryakant Chaudary, S Jaya Kumar, and Abhishek, students of Harsha Institute of Management Studies, have successfully attended and participated in the academic sessions related to the project titled <strong>"RAKSHA-SURAKSHA."</strong></p>
@@ -142,13 +151,19 @@
         <p>This certificate is issued as an acknowledgment of the students' dedication and commitment toward fulfilling the academic requisites.</p>
         
         <p style="text-indent: 0; margin-top: 100px;">Place: Nelamangala<br>Date: ____________</p>
+        
+        <!-- FIXED: Guide left, HOD right with Seal directly underneath -->
         <div style="display: flex; justify-content: space-between; margin-top: 80px;">
             <div style="text-align: center; font-weight: bold; font-size: 12pt;">Signature of Guide</div>
-            <div style="text-align: center; font-weight: bold; font-size: 12pt;">Signature of HOD</div>
+            <div style="text-align: center; font-weight: bold; font-size: 12pt;">
+                Signature of HOD
+                <br><br><br><br>
+                Seal of Institution
+            </div>
         </div>
-        <p style="text-indent: 0; text-align: center; margin-top: 40px; font-weight: bold;">Seal of Institution</p>
     </div>
 
+    <!-- PAGE 5 -->
     <div class="page numbered-page">
         <h1>PROJECT APPROVAL CERTIFICATE</h1>
         <p style="text-indent: 0; font-weight: bold; text-align: right;">Date: ____________</p>
@@ -157,13 +172,19 @@
         <p>This approval acknowledges the students' dedication, analytical approach, and successful completion of the project work.</p>
         
         <p style="text-indent: 0; margin-top: 100px;">Place: Nelamangala<br>Date: ____________</p>
+        
+        <!-- FIXED: Guide left, HOD right with Seal directly underneath -->
         <div style="display: flex; justify-content: space-between; margin-top: 80px;">
             <div style="text-align: center; font-weight: bold; font-size: 12pt;">Signature Of Guide</div>
-            <div style="text-align: center; font-weight: bold; font-size: 12pt;">Signature Of HOD</div>
+            <div style="text-align: center; font-weight: bold; font-size: 12pt;">
+                Signature Of HOD
+                <br><br><br><br>
+                Seal Of Institution
+            </div>
         </div>
-        <p style="text-indent: 0; text-align: center; margin-top: 40px; font-weight: bold;">Seal Of Institution</p>
     </div>
 
+    <!-- PAGE 6 -->
     <div class="page numbered-page">
         <h1>ACKNOWLEDGEMENT</h1>
         <p>We express our sincere gratitude to Harsha Institute of Management Studies for providing us with the opportunity to undertake this project on "RAKSHA-SURAKSHA". This project has been an enriching learning experience, allowing us to explore the technical and practical aspects of mobile security systems.</p>
@@ -171,9 +192,14 @@
         <p>We are also grateful to our HOD, Prof. Naga Suma C.V, and Bangalore University for an academic structure which fosters research and innovation. The knowledge acquired during this project will undoubtedly serve as a foundation for future professional endeavors.</p>
         <p>Furthermore, we would like to thank our families, friends, and peers for their continuous encouragement and unwavering support. Their motivation has been a driving force in successfully completing this project.</p>
         <p>Finally, we extend our appreciation to all those who have directly or indirectly contributed to the successful completion of this project. Thank you.</p>
-        <p style="text-indent: 0; text-align: right; font-weight: bold; margin-top: 40px;">MD Aslam Ansari<br>Suryakant Chaudary<br>S Jaya Kumar<br>Abhishek<br>BCA (VI SEM)</p>
+        
+        <!-- FIXED: Adjusted margin-top, line-height, and font-size to prevent page number overlap -->
+        <p style="text-indent: 0; text-align: right; font-weight: bold; margin-top: 15px; line-height: 1.4; font-size: 12pt;">
+            MD Aslam Ansari<br>Suryakant Chaudary<br>S Jaya Kumar<br>Abhishek<br>BCA (VI SEM)
+        </p>
     </div>
 
+    <!-- PAGE 7 -->
     <div class="page numbered-page">
         <h1>TABLE OF CONTENTS</h1>
         <table class="toc-table">
@@ -196,6 +222,7 @@
         </table>
     </div>
 
+    <!-- PAGE 8+ -->
     <div class="page numbered-page">
         <h1>CHAPTER 1: INTRODUCTION</h1>
         <h2>1.1 Introduction to Raksha-Suraksha</h2>
@@ -354,4 +381,4 @@ public class MainActivity extends AppCompatActivity {
     </div>
 
 </body>
-    </html>
+                                                                                                               </html>
