@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raksha-Suraksha Project Report</title>
+    <style>
+        body {
+            background-color: #f0f0f0;
+            font-family: "Times New Roman", Times, serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+            padding: 20px 0;
+        }
+
+        .page {
+            background-color: white;
+            width: 794px; /* A4 width at 96 DPI */
+            height: 1123px; /* A4 height at 96 DPI */
+            border: 2px solid black;
+            box-sizing: border-box;
+            padding: 60px 50px 40px 50px;
+            margin-bottom: 30px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .text-center { text-align: center; }
+        .text-justify { text-align: justify; line-height: 1.8; }
+        .text-right { text-align: right; }
+        .font-bold { font-weight: bold; }
+        .font-underline { text-decoration: underline; }
+        
+        .mt-1 { margin-top: 10px; }
+        .mt-2 { margin-top: 20px; }
+        .mt-3 { margin-top: 30px; }
+        .mt-4 { margin-top: 40px; }
+        .mt-5 { margin-top: 50px; }
+        .mb-2 { margin-bottom: 20px; }
+
+        /* Page 1 Specific */
+        .title-large { font-size: 24px; font-weight: bold; margin: 20px 0; }
+        .logo-placeholder {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 2px solid #800000;
+            margin: 20px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            color: #800000;
+            text-align: center;
+        }
+
+        /* Signatures and Layouts */
+        .signature-row {
+            display: flex;
+            justify-content: space-between;
+            margin-top: auto; /* Pushes to bottom */
+            margin-bottom: 40px;
+        }
+        .signature-block {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .page-number {
+            position: absolute;
+            bottom: 30px;
+            right: 50px;
+            font-weight: bold;
+        }
+
+        /* Table of Contents Specific */
+        .toc-header-row {
+            display: flex;
+            justify-content: space-between;
+            font-weight: bold;
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+        .toc-item {
+            display: flex;
+            align-items: flex-end;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+        .toc-title { white-space: nowrap; }
+        .toc-dots {
+            flex-grow: 1;
+            border-bottom: 1px dotted black;
+            margin: 0 10px;
+            position: relative;
+            top: -5px;
+        }
+        .toc-page { white-space: nowrap; }
+        
+        /* Print Styles */
+        @media print {
+            body { background-color: white; padding: 0; }
+            .page { 
+                box-shadow: none; 
+                margin: 0; 
+                page-break-after: always;
+                border: 2px solid black; /* Ensures border prints */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="page">
+        <div class="text-center mt-3">
+            <p>-A PROJECT ON</p>
+            <div class="title-large">"RAKSHA-SURAKSHA"</div>
+            <p class="font-bold mt-4">UNDERTAKEN AT</p>
+            <p class="font-bold title-large">HARSHA INSTITUTE OF MANAGEMENT STUDIES</p>
+            
+            <p class="mt-4">By</p>
+            <p class="font-bold">
+                MD ASLAM ANSARI<br>
+                SURYAKANT CHAUDARY<br>
+                S JAYA KUMAR<br>
+                ABHISHEK
+            </p>
+
+            <div class="logo-placeholder">
+                LOGO<br>Bangalore<br>University
+            </div>
+
+            <p class="font-bold mt-2">SUBMITTED TO<br>BANGALORE UNIVERSITY, Bangalore</p>
+
+            <p class="mt-3">In</p>
+            <p>Partial fulfilment of the requirement for the Award of the Degree of</p>
+            <p class="font-bold">Bachelor of Computer Application (B.C.A)</p>
+
+            <p class="font-bold mt-4">MAY 2026</p>
+
+            <p class="mt-4">GUIDED BY</p>
+            <p class="font-bold">PROF. JERIN</p>
+            <p>Computer Application Department</p>
+            <p class="font-bold">
+                HARSHA INSTITUTE OF MANAGEMENT STUDIES,<br>
+                NELAMANGALA
+            </p>
+        </div>
+        <div class="page-number">Page | 1</div>
+    </div>
+
+    <div class="page">
+        <h2 class="text-center font-underline mb-2">DECLARATION</h2>
+        <p class="text-justify mt-3">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;We, MD Aslam Ansari, Suryakant Chaudary, S Jaya Kumar, and Abhishek, students of Harsha Institute of Management Studies, hereby declare that the project titled <strong>"RAKSHA-SURAKSHA"</strong> submitted to Bangalore University, Bangalore, is our original work.
+        </p>
+        <p class="text-justify mt-2">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This project has been completed under the guidance of Prof. Jerin, Computer Application Department, Harsha Institute of Management Studies. The information presented in this project is gathered from reliable sources, and any references have been duly acknowledged.
+        </p>
+        <p class="text-justify mt-2">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;We affirm that this project has not been submitted, in part or whole, to any other university or institution for any academic certification. The work presented is a result of our sincere effort and dedication toward fulfilling the requirements for the Bachelor of Computer Application (B.C.A) degree.
+        </p>
+
+        <div class="signature-row mt-5">
+            <div class="signature-block">
+                <p class="font-bold">Name & Signature of the guide</p>
+                <p class="font-bold mt-4">Prof. Jerin</p>
+            </div>
+            <div class="signature-block">
+                <p class="font-bold">Name & Signature of Students</p>
+                <p class="font-bold mt-4">
+                    1. MD Aslam Ansari<br>
+                    2. Suryakant Chaudary<br>
+                    3. S Jaya Kumar<br>
+                    4. Abhishek
+                </p>
+            </div>
+        </div>
+        <div class="page-number">Page | 2</div>
+    </div>
+
+    <div class="page">
+        <h2 class="text-center font-underline">CERTIFICATE FROM THE PRINCIPAL</h2>
+        <p class="text-right font-bold mt-2">Date: ____________</p>
+        <h3 class="text-center font-underline mt-3">Project Completion Certificate</h3>
+        
+        <p class="text-justify mt-3">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This is to certify that the project titled <strong>"RAKSHA-SURAKSHA"</strong> undertaken by MD Aslam Ansari, Suryakant Chaudary, S Jaya Kumar, and Abhishek under the guidance of Prof. Jerin, Computer Application Department, has been successfully completed as part of the curriculum requirements for the Bachelor of Computer Application (B.C.A) degree at Harsha Institute of Management Studies, affiliated with Bangalore University.
+        </p>
+        <p class="text-justify mt-2">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The project work has been carried out in accordance with the academic standards and guidelines set by the institution. The students have demonstrated diligence, analytical skills, and technical proficiency in executing this mobile security project.
+        </p>
+        <p class="text-justify mt-2">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;I hereby acknowledge the efforts put forth by the students in completing this project and congratulate them on their achievement.
+        </p>
+
+        <div class="mt-5">
+            <p>Place: Nelamangala</p>
+            <p>Date: ____________</p>
+        </div>
+
+        <div class="signature-row" style="flex-direction: column; align-items: flex-end;">
+            <p class="font-bold mt-4">Signature of Principal</p>
+            <p class="font-bold mt-5">Seal of the Institute</p>
+        </div>
+        <div class="page-number">Page | 3</div>
+    </div>
+
+    <div class="page">
+        <h2 class="text-center font-underline mt-3">CERTIFICATE OF ATTENDANCE</h2>
+        
+        <p class="text-justify mt-4">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This is to certify that MD Aslam Ansari, Suryakant Chaudary, S Jaya Kumar, and Abhishek, students of Harsha Institute of Management Studies, have successfully attended and participated in the academic sessions related to the project titled <strong>"RAKSHA-SURAKSHA."</strong>
+        </p>
+        <p class="text-justify mt-2">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The project was undertaken as part of the curriculum requirements for the Bachelor of Computer Application (B.C.A) degree, affiliated with Bangalore University. Throughout the duration of the project, the students have demonstrated diligence, enthusiasm, and active engagement in research and practical implementation.
+        </p>
+        <p class="text-justify mt-2">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This certificate is issued as an acknowledgment of the students' dedication and commitment toward fulfilling the academic requisites.
+        </p>
+
+        <div class="mt-5">
+            <p>Place: Nelamangala</p>
+            <p>Date: ____________</p>
+        </div>
+
+        <div class="signature-row mt-5">
+            <div class="signature-block">
+                <p class="font-bold mt-5">Signature of Guide</p>
+            </div>
+            <div class="signature-block text-center">
+                <p class="font-bold mt-5">Signature of HOD</p>
+                <p class="font-bold mt-5">Seal of Institution</p>
+            </div>
+        </div>
+        <div class="page-number">Page | 4</div>
+    </div>
+
+    <div class="page">
+        <h2 class="text-center font-underline mt-3">PROJECT APPROVAL CERTIFICATE</h2>
+        <p class="text-right font-bold mt-3">Date: ____________</p>
+        
+        <p class="text-justify mt-4">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This is to certify that the project titled <strong>"RAKSHA-SURAKSHA"</strong>, submitted by MD Aslam Ansari, Suryakant Chaudary, S Jaya Kumar, and Abhishek, students of Harsha Institute of Management Studies, has been reviewed and approved as part of the curriculum requirements for the Bachelor of Computer Application (B.C.A) degree.
+        </p>
+        <p class="text-justify mt-2">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The project has been completed under the guidance of Prof. Jerin, Computer Application Department, and has met the academic standards and guidelines set forth by the institute.
+        </p>
+        <p class="text-justify mt-2">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This approval acknowledges the students' dedication, analytical approach, and successful completion of the project work.
+        </p>
+
+        <div class="mt-5">
+            <p>Place: Nelamangala</p>
+            <p>Date: ____________</p>
+        </div>
+
+        <div class="signature-row mt-5">
+            <div class="signature-block">
+                <p class="font-bold mt-5">Signature of Guide</p>
+            </div>
+            <div class="signature-block text-center">
+                <p class="font-bold mt-5">Signature of HOD</p>
+                <p class="font-bold mt-5">Seal Of Institution</p>
+            </div>
+        </div>
+        <div class="page-number">Page | 5</div>
+    </div>
+
+    <div class="page">
+        <h2 class="text-center font-underline mt-2">ACKNOWLEDGEMENT</h2>
+        
+        <p class="text-justify mt-4">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;We express our sincere gratitude to Harsha Institute of Management Studies for providing us with the opportunity to undertake this project on "RAKSHA-SURAKSHA". This project has been an enriching learning experience, allowing us to explore the technical and practical aspects of mobile security systems.
+        </p>
+        <p class="text-justify mt-2">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;We extend our heartfelt thanks to Prof. Jerin, our esteemed guide, for his invaluable support, encouragement, and expert guidance throughout the development of this project. His insightful feedback and mentorship have been instrumental in shaping the depth and quality of our work.
+        </p>
+        <p class="text-justify mt-2">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;We are also grateful to our HOD, Prof. Naga Suma C.V, and Bangalore University for an academic structure which fosters research and innovation. The knowledge acquired during this project will undoubtedly serve as a foundation for future professional endeavors.
+        </p>
+        <p class="text-justify mt-2">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Furthermore, we would like to thank our families, friends, and peers for their continuous encouragement and unwavering support. Their motivation has been a driving force in successfully completing this project.
+        </p>
+        <p class="text-justify mt-2">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Finally, we extend our appreciation to all those who have directly or indirectly contributed to the successful completion of this project. Thank you.
+        </p>
+
+        <div class="signature-row" style="flex-direction: column; align-items: flex-end;">
+            <p class="font-bold text-right mt-4">
+                MD Aslam Ansari<br>
+                Suryakant Chaudary<br>
+                S Jaya Kumar<br>
+                Abhishek<br>
+                BCA (VI SEM)
+            </p>
+        </div>
+        <div class="page-number">Page | 6</div>
+    </div>
+
+    <div class="page">
+        <h2 class="text-center font-underline mb-4 mt-3">TABLE OF CONTENTS</h2>
+        
+        <div class="toc-header-row mt-4">
+            <span>Chapter Title</span>
+            <span>Page Number</span>
+        </div>
+
+        <div class="toc-item mt-2">
+            <span class="toc-title">Declaration</span>
+            <span class="toc-dots"></span>
+            <span class="toc-page">2</span>
+        </div>
+        <div class="toc-item">
+            <span class="toc-title">Principal Certificate</span>
+            <span class="toc-dots"></span>
+            <span class="toc-page">3</span>
+        </div>
+        <div class="toc-item">
+            <span class="toc-title">Certificate of Attendance</span>
+            <span class="toc-dots"></span>
+            <span class="toc-page">4</span>
+        </div>
+        <div class="toc-item">
+            <span class="toc-title">Project Approval Certificate</span>
+            <span class="toc-dots"></span>
+            <span class="toc-page">5</span>
+        </div>
+        <div class="toc-item">
+            <span class="toc-title">Acknowledgement</span>
+            <span class="toc-dots"></span>
+            <span class="toc-page">6</span>
+        </div>
+        <div class="toc-item mt-3">
+            <span class="toc-title">1. Introduction</span>
+            <span class="toc-dots"></span>
+            <span class="toc-page">8</span>
+        </div>
+        <div class="toc-item">
+            <span class="toc-title">2. Literature Survey</span>
+            <span class="toc-dots"></span>
+            <span class="toc-page">10</span>
+        </div>
+        <div class="toc-item">
+            <span class="toc-title">3. System Analysis and Designing</span>
+            <span class="toc-dots"></span>
+            <span class="toc-page">12</span>
+        </div>
+        <div class="toc-item">
+            <span class="toc-title">4. Implementation</span>
+            <span class="toc-dots"></span>
+            <span class="toc-page">14</span>
+        </div>
+        <div class="toc-item">
+            <span class="toc-title">5. Coding</span>
+            <span class="toc-dots"></span>
+            <span class="toc-page">16</span>
+        </div>
+        <div class="toc-item">
+            <span class="toc-title">6. Software Testing</span>
+            <span class="toc-dots"></span>
+            <span class="toc-page">21</span>
+        </div>
+        <div class="toc-item">
+            <span class="toc-title">7. Results/Screenshots</span>
+            <span class="toc-dots"></span>
+            <span class="toc-page">23</span>
+        </div>
+        <div class="toc-item">
+            <span class="toc-title">8. Conclusion</span>
+            <span class="toc-dots"></span>
+            <span class="toc-page">24</span>
+        </div>
+        <div class="toc-item">
+            <span class="toc-title">9. Future Enhancement</span>
+            <span class="toc-dots"></span>
+            <span class="toc-page">25</span>
+        </div>
+        <div class="toc-item">
+            <span class="toc-title">10. Bibliography</span>
+            <span class="toc-dots"></span>
+            <span class="toc-page">26</span>
+        </div>
+
+        <div class="page-number">Page | 7</div>
+    </div>
+
+</body>
+              </html>
